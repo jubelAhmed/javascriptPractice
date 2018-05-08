@@ -1,3 +1,6 @@
+
+// creating a promise
+
 var myfetch = (url) => {
     return new Promise((resolve , reject) =>{
         var xhr = new XMLHttpRequest();
@@ -17,12 +20,16 @@ var myfetch = (url) => {
     })
 }
 
+// creating another promise  
+
 var showData = (data) =>{
     var obj = JSON.parse(data);
     return Promise.resolve(obj)
 }
 
 var fetched = myfetch('https://jsonplaceholder.typicode.com/users');
+
+//promise call
 
 fetched.then(showData).then((obj)=>{
     obj.map((data) => console.log(`name : ${data.name}
